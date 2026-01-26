@@ -1,0 +1,73 @@
+# =========================
+# JetBrains / CLion
+# =========================
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# CLion CMake build directories (default)
+cmake-build-*/
+# Sometimes people use these too
+build/
+out/
+
+# =========================
+# CMake generated files
+# =========================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+
+# =========================
+# Build outputs
+# =========================
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+
+# Common build folders
+Debug/
+Release/
+MinSizeRel/
+RelWithDebInfo/
+
+# =========================
+# Logs / temp
+# =========================
+*.log
+*.tmp
+*.swp
+*.swo
+
+# =========================
+# macOS
+# =========================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# =========================
+# Windows
+# =========================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================
+# Linux
+# =========================
+*~
