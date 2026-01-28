@@ -1,10 +1,67 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <sstream>
 using namespace std;
+
+struct BIT {
+    int n;
+    vector<long long> bit;
+    BIT(int n=0): n(n), bit(n+1, 0) {}
+
+    void add(int i, long long v) {
+        for (; i <= n; i += i & -i) bit[i] += v;
+    }
+
+    long long sum(int i) const {
+        long long s = 0;
+        for (; i > 0; i -= i & -i) s += bit[i];
+        return s;
+    }
+
+    long long rangeSum(int l, int r) const {
+        return sum(r) - sum(l - 1);
+    }
+};
+
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int N, Q;
+    cin >> N >> Q;
+
+    vector<long long> A(N + 1);
+    BIT fw(N);
+
+    for (int i = 1; i <= N; i++) {
+        cin >> A[i];
+        fw.add(i, A[i]);
+    }
+
+    while (Q--) {
+        int type;
+        cin >> type;
+
+        if (type == 1) {
+            int x;
+            cin >> x; // swap A[x] and A[x+1]
+
+            long long old1 = A[x], old2 = A[x + 1];
+            swap(A[x], A[x + 1]);
+
+            // reflect changes in BIT (delta updates)
+            fw.add(x,     A[x]     - old1);
+            fw.add(x + 1, A[x + 1] - old2);
+
+        } else { // type == 2
+            int l, r;
+            cin >> l >> r;
+            cout << fw.rangeSum(l, r) << '\n';
+        }
+    }
+
     return 0;
 }
-
 /*
 【問題概要（整理）】
 
