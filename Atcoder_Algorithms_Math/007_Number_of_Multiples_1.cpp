@@ -34,3 +34,5 @@ long long ans = n / x + n / y - n / l;
 cout << ans << '\n';
 return 0;
 } */
+
+// https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_g

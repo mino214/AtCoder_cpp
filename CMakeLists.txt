@@ -4,7 +4,8 @@ project(AtCoder)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(AtCoder
-        Atcoder_Algorithms_Math/008_Brute_Force_1.cpp
+        Atcoder_Algorithms_Math/009_Brute_Force_2.cpp
+        # Atcoder_Algorithms_Math/008_Brute_Force_1.cpp
         # AtCoder_Beginner_Contest_442/A_count.cpp
         # AtCoder_Beginner_Contest_442/B_Music_Player.cpp
         # AtCoder_Beginner_Contest_442/C_Peer_Review.cpp
