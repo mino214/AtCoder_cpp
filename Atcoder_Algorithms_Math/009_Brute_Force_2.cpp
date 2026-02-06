@@ -1,20 +1,30 @@
 #include<iostream>
+#include<vector>
 using namespace std;
+
 int main() {
-    int n,s;
-    int a[60];
-    bool used[60] ={false};
-    bool flag =false;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    string ans="No";
-    cin>>n>>s;
+    int n, s;
+    cin >> n >> s;
 
-    for (int i = 0 ; i < n ; i++)
-        cin >> a[i];
+    vector<int> A(n);
+    for (int i = 0; i < n; i++) cin >> A[i];
 
-    for (int i = 0 ; i < n ; i++) {
+    vector<vector<char>> dp(n + 1, vector<char>(s + 1, 0));
+    dp[0][0] = 1;
 
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <= s; j++) {
+            if (!dp[i][j]) continue;
+            dp[i + 1][j] = 1;
+            if (j + A[i] <= s) dp[i + 1][j + A[i]] = 1;
+        }
     }
+
+    cout << (dp[n][s] ? "Yes" : "No") << '\n';
+    return 0;
 }
 
 /*
