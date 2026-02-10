@@ -3,20 +3,22 @@
 using namespace std;
 
 long long lcm(long long a, long long b) {
-    long long t = gcd(a, b);
-    return a / t * b;
+    return a / gcd(a, b) * b;
 }
 
 int main() {
     int n;
-    long long g = 1;
-
     cin>>n;
-    for(int i = 0; i < n; i++) {
-        long long a;
-        cin>>a;
 
+    long long ans = 1;
+    for (int i = 0 ; i<n ; ++i) {
+
+        long long x;
+        cin>>x;
+
+        ans = lcm(ans, x);
     }
+    cout<<ans;
 }
 /*
 * 問題文
